@@ -1,0 +1,12 @@
+########### build ###########
+*.pyc
+*.done
+.mypy_cache
+server-static/
+media/
+
+########### databases #######
+*.sqlite3
+
+######## editor ###########
+.idea
