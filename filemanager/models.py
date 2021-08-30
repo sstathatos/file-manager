@@ -3,7 +3,7 @@ from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils import timezone
 
-ALLOWED_FILE_EXTENSIONS = ["pdf", "txt", "jpg", "jpeg", "mp4"]
+ALLOWED_FILE_EXTENSIONS = ["pdf", "txt", "jpg", "png", "mp4"]
 
 
 class File(models.Model):
@@ -14,7 +14,6 @@ class File(models.Model):
         storage=FileSystemStorage(),
     )
     date_created = models.DateTimeField(default=timezone.now)
-    # todo fix this
 
     def __str__(self):
         return str(self.file.name)
