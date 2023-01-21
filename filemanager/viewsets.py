@@ -1,8 +1,7 @@
 import os
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework import status, viewsets
-from rest_framework.response import Response
 
 from .models import File
 from .serializers import FileSerializer
@@ -20,4 +19,8 @@ class FileViewSet(viewsets.ModelViewSet):
             with open(os.path.join(MEDIA_ROOT, serializer.data["name"]), "rb") as f:
                 return HttpResponse((f.read()), content_type="image/png")
         except IOError:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse(status=status.HTTP_404_NOT_FOUND, data={})
+
+    def list(self, request, *args, **kwargs):
+        super(FileViewSet, self).list(request, *args, **kwargs)
+        return JsonResponse(status=status.HTTP_200_OK, data={}, safe=False)

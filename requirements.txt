@@ -1,3 +1,4 @@
 django
 djangorestframework
 pre-commit
+django-cors-headers
