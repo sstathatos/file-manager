@@ -21,6 +21,6 @@ class FileViewSet(viewsets.ModelViewSet):
         except IOError:
             return JsonResponse(status=status.HTTP_404_NOT_FOUND, data={})
 
-    def list(self, request, *args, **kwargs):
-        super(FileViewSet, self).list(request, *args, **kwargs)
-        return JsonResponse(status=status.HTTP_200_OK, data={}, safe=False)
+    # def list(self, request, *args, **kwargs):
+    #     super(FileViewSet, self).list(request, *args, **kwargs)
+    #     return JsonResponse(status=status.HTTP_200_OK, data={}, safe=False)
