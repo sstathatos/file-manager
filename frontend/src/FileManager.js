@@ -12,14 +12,14 @@ const FileManager = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const fetchData = async () => {
-      const result = await axios.get(`${baseUrl}files?path=${currentDirectory}`);
+      const result = await axios.get(`${baseUrl}files/`);
+      console.log(result.data)
       setFiles(result.data);
     };
 
   useEffect(() => {
     console.log('filemanager use effect called!')
     fetchData();
-    handleSelectFile(null)
   }, [currentDirectory]);
 
   const handleNavigate = (path) => {
@@ -33,14 +33,14 @@ const FileManager = () => {
   const handleUploadFile = (e) => {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
-    axios.post('/files/', formData, {
+    axios.post(`${baseUrl}files/`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   };
 
   const handleDeleteFile = async (file) => {
-    await axios.delete(`/files/${file.file_id}`);
-    const result = await axios.get(`/files?path=${currentDirectory}`);
+    await axios.delete(`${baseUrl}files/${file.file_id}`);
+    const result = await axios.get(`${baseUrl}files?path=/`);
     setFiles(result.data);
     // setFiles(files.filter((f) => f.path !== file.path));
 
