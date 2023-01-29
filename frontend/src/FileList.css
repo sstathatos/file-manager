@@ -1,0 +1,16 @@
+.file-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/*.file-item:hover {*/
+/*    background-color: #f0f0f0;*/
+/*}*/

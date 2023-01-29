@@ -18,7 +18,6 @@ const FileManager = () => {
     };
 
   useEffect(() => {
-    console.log('filemanager use effect called!')
     fetchData();
   }, [currentDirectory]);
 
@@ -27,12 +26,12 @@ const FileManager = () => {
   };
 
   const handleSelectFile = (file) => {
-    setSelectedFile(file);
+    (selectedFile === file) ? setSelectedFile(null) : setSelectedFile(file);
   };
 
   const handleUploadFile = (e) => {
     const formData = new FormData();
-    formData.append('file', e.target.files[0]);
+    formData.append('file', e.tarcurrentDirectoryget.files[0]);
     axios.post(`${baseUrl}files/`, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
@@ -43,7 +42,7 @@ const FileManager = () => {
     const result = await axios.get(`${baseUrl}files?path=/`);
     setFiles(result.data);
     // setFiles(files.filter((f) => f.path !== file.path));
-
+    handleSelectFile(null)
   };
 
   return (
@@ -55,6 +54,7 @@ const FileManager = () => {
           onNavigate={handleNavigate}
           onSelect={handleSelectFile}
           onUpload={handleUploadFile}
+          fetchData={fetchData}
         />
       </div>
       <div className="file-preview">

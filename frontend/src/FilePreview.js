@@ -1,16 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import FileActions from "./FileActions";
 
 const FilePreview = ({ file, onDelete, setSelectedFile }) => {
-
-  // useEffect(() => {
-  //   file ? console.log('FilePreview use effect called!') : setSelectedFile(null)
-  // }, [file]);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
   return (
     <div>
       <div>
-        <img src={file.path} alt={file.name} />
+        <img src={`http://localhost:8000/media/${file.name}`} alt={file.name} />
         <p>{file.name}</p>
       </div>
       <div className="file-actions">

@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+// import './FileList.css';
+import { FiFile, FiFolder, FiImage } from 'react-icons/fi';
+
 
 const baseUrl = "http://localhost:8000/"
 
-const FileList = ({ currentDirectory, onNavigate, onSelect }) => {
-  const [files, setFiles] = useState([]);
-  const fetchData = async () => {
-      const result = await axios.get(`${baseUrl}/files/`);
-      setFiles(result.data);
-  };
+const FileList = ({ files, currentDirectory, onNavigate, onSelect , fetchData}) => {
 
   // useEffect(() => {
   //   fetchData();
@@ -37,7 +35,12 @@ const FileList = ({ currentDirectory, onNavigate, onSelect }) => {
       {files.length > 0 ? (
         <ul>
           {files.map((file) => (
-            <li key={file.file_id} onClick={() => handleClick(file)}>
+            <li key={file.file_id} className="file-item" onClick={() => handleClick(file)}>
+              {file.type === 'jpg' || file.type === 'png' ?
+                        <FiImage className="file-icon" size={32} /> :
+                    file.type === 'folder' ?
+                        <FiFolder className="file-icon" size={32} /> :
+                        <FiFile className="file-icon" size={32} /> }
               {file.name}
             </li>
           ))}
