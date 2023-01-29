@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-// import './FileList.css';
+import './FileList.css';
 import { FiFile, FiFolder, FiImage } from 'react-icons/fi';
 
 
@@ -50,7 +50,7 @@ const FileList = ({ files, currentDirectory, onNavigate, onSelect , fetchData}) 
           <p>No files found.</p>
         </div>
       )}
-      <div>
+      <div className="input-container">
         <input type="file" onChange={handleUpload} />
         <button>Upload</button>
       </div>
