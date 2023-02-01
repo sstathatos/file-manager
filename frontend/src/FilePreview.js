@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import FileActions from "./FileActions";
 
 const FilePreview = ({ file, onDelete, setSelectedFile }) => {
-    const [previewUrl, setPreviewUrl] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   return (
     <div>

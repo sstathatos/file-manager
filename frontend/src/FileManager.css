@@ -1,12 +1,25 @@
 .file-manager {
   display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 .file-explorer {
   width: 20%;
   padding: 10px;
 }
 .file-list {
-  width: 80%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.filepreview {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.action-bar {
+  display: flex;
+  justify-content: flex-end;
   padding: 10px;
 }
 table {

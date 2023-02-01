@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
 
 const FileActions = ({ file, onDelete }) => {
-
   return (
     <div>
       <button onClick={() => onDelete(file)}>Delete</button>
