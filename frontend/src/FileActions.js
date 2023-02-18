@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FileActions = ({ file, onDelete }) => {
   return (
@@ -8,6 +9,11 @@ const FileActions = ({ file, onDelete }) => {
       <button>Share</button>
     </div>
   );
+};
+
+FileActions.propTypes = {
+  file: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default FileActions;

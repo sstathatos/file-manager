@@ -1,6 +1,7 @@
 import React from 'react';
 import './FileList.css';
 import { FiFile, FiFolder, FiImage } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 const FileList = ({ files, onNavigate, onSelect }) => {
   const handleClick = (file) => {
@@ -35,6 +36,12 @@ const FileList = ({ files, onNavigate, onSelect }) => {
       )}
     </div>
   );
+};
+
+FileList.propTypes = {
+  files: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
 export default FileList;

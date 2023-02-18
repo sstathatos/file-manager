@@ -1,5 +1,6 @@
 import React from 'react';
 import FileActions from './FileActions';
+import PropTypes from 'prop-types';
 
 const FilePreview = ({ file, onDelete }) => {
   return (
@@ -11,6 +12,11 @@ const FilePreview = ({ file, onDelete }) => {
       <div className='file-actions'>{<FileActions file={file} onDelete={onDelete} />}</div>
     </div>
   );
+};
+
+FilePreview.propTypes = {
+  file: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default FilePreview;
