@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./FileList.css";
-import { FiFile, FiFolder, FiImage } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './FileList.css';
+import { FiFile, FiFolder, FiImage } from 'react-icons/fi';
 
-const baseUrl = "http://localhost:8000/";
+const baseUrl = 'http://localhost:8000/';
 
-const FileList = ({
-  files,
-  currentDirectory,
-  onNavigate,
-  onSelect,
-  fetchData,
-}) => {
+const FileList = ({ files, currentDirectory, onNavigate, onSelect, fetchData }) => {
   // useEffect(() => {
   //   fetchData();
   // }, [files]);
@@ -25,21 +19,17 @@ const FileList = ({
   };
 
   return (
-    <div className="file-list">
+    <div className='file-list'>
       {files.length > 0 ? (
         <ul>
           {files.map((file) => (
-            <li
-              key={file.file_id}
-              className="file-item"
-              onClick={() => handleClick(file)}
-            >
-              {file.type === "jpg" || file.type === "png" ? (
-                <FiImage className="file-icon" size={32} />
-              ) : file.type === "folder" ? (
-                <FiFolder className="file-icon" size={32} />
+            <li key={file.file_id} className='file-item' onClick={() => handleClick(file)}>
+              {file.type === 'jpg' || file.type === 'png' ? (
+                <FiImage className='file-icon' size={32} />
+              ) : file.type === 'folder' ? (
+                <FiFolder className='file-icon' size={32} />
               ) : (
-                <FiFile className="file-icon" size={32} />
+                <FiFile className='file-icon' size={32} />
               )}
               {file.name}
             </li>

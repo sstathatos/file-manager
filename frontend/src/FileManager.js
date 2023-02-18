@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./FileManager.css";
-import FileList from "./FileList";
-import FilePreview from "./FilePreview";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './FileManager.css';
+import FileList from './FileList';
+import FilePreview from './FilePreview';
 
-const baseUrl = "http://localhost:8000/";
+const baseUrl = 'http://localhost:8000/';
 
 const FileManager = () => {
-  const [currentDirectory, setCurrentDirectory] = useState("/");
+  const [currentDirectory, setCurrentDirectory] = useState('/');
   const [files, setFiles] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -39,9 +39,9 @@ const FileManager = () => {
 
   const handleUpload = async (e) => {
     const formData = new FormData();
-    formData.append("file", e.target.files[0]);
+    formData.append('file', e.target.files[0]);
     await axios.post(`${baseUrl}/files/`, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: { 'Content-Type': 'multipart/form-data' }
     });
     // refresh file list after upload
     fetchData();
@@ -56,8 +56,8 @@ const FileManager = () => {
   };
 
   return (
-    <div className="file-manager">
-      <div className="file-list">
+    <div className='file-manager'>
+      <div className='file-list'>
         <FileList
           files={files}
           currentDirectory={currentDirectory}
@@ -67,18 +67,12 @@ const FileManager = () => {
           fetchData={fetchData}
         />
       </div>
-      <div className="file-preview">
-        {selectedFile && (
-          <FilePreview
-            file={selectedFile}
-            onDelete={handleDeleteFile}
-            setSelectedFile={handleSelectFile}
-          />
-        )}
+      <div className='file-preview'>
+        {selectedFile && <FilePreview file={selectedFile} onDelete={handleDeleteFile} setSelectedFile={handleSelectFile} />}
       </div>
       <div>
-        <div className="action-bar">
-          <input type="file" onChange={handleUpload} />
+        <div className='action-bar'>
+          <input type='file' onChange={handleUpload} />
           <button>Upload</button>
         </div>
       </div>

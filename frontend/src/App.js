@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import NavBar from "./NavBar";
-import FileManager from "./FileManager";
+import React, { useState } from 'react';
+import NavBar from './NavBar';
+import FileManager from './FileManager';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -14,7 +14,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       {!isLoggedIn ? (
         <div>
           <h1>Welcome to the file manager app!</h1>
