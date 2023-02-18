@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './FileList.css';
 import { FiFile, FiFolder, FiImage } from 'react-icons/fi';
 
-const baseUrl = 'http://localhost:8000/';
-
-const FileList = ({ files, currentDirectory, onNavigate, onSelect, fetchData }) => {
-  // useEffect(() => {
-  //   fetchData();
-  // }, [files]);
-
+const FileList = ({ files, onNavigate, onSelect }) => {
   const handleClick = (file) => {
     if (file.isDirectory) {
       onNavigate(file.path);

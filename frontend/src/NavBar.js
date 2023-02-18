@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavBar.css';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 function Navbar(handleLogout) {
   return (
