@@ -2,13 +2,19 @@ version: '3.9'
 
 services:
 
-  django:
+  django: &django
     container_name: django
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - "8000:8000"
+  
+  django-migrate: 
+    <<: *django
+    container_name: django-migrate
+    command: bash migrate-entrypoint.sh
+    ports: []
   
   react:
     container_name: react
